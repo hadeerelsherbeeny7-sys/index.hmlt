@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f3b4a">
+<title>Microcell – المحاضرات</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap">
+<style>
+:root{--bg:#f2f6f7;--card:#fff;--ink:#12303a;--mut:#58737c;--pri:#0f3b4a;--acc:#b2246b;--line:#d5e1e5;--ok:#1b7a4b;--bad:#b3261e;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1d24;--card:#122a33;--ink:#e6f0f2;--mut:#93adb5;--pri:#7fd0e0;--acc:#f06cae;--line:#24424d;--ok:#5fd394;--bad:#ff8a80;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0b1d24;--card:#122a33;--ink:#e6f0f2;--mut:#93adb5;--pri:#7fd0e0;--acc:#f06cae;--line:#24424d;--ok:#5fd394;--bad:#ff8a80;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Cairo,Tahoma,Arial,sans-serif;line-height:1.8;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+header{background:var(--pri);color:#fff;padding:18px 16px 14px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) header{color:#0b1d24}}
+:root[data-theme="dark"] header{color:#0b1d24}
+.wrap{max-width:760px;margin:auto}
+h1{margin:0;font-size:1.5rem;font-weight:800}
+header p{margin:2px 0 10px;opacity:.85;font-size:.9rem}
+.row{display:flex;gap:8px}
+input[type=search]{flex:1;min-width:0;padding:10px 14px;border-radius:10px;border:0;font:inherit;background:#fff;color:#12303a}
+button{font:inherit;cursor:pointer}
+.ic{border:0;border-radius:10px;padding:0 14px;background:rgba(255,255,255,.2);color:inherit}
+nav{display:flex;gap:6px;padding:10px 12px;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5;border-bottom:1px solid var(--line)}
+nav button{flex:1;padding:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;font-weight:600}
+nav button.on{background:var(--acc);border-color:var(--acc);color:#fff}
+main{padding:12px;max-width:760px;margin:auto}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden}
+summary{padding:12px 14px;font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:8px}
+summary::after{content:"+";color:var(--acc);font-size:1.3rem;line-height:1}
+details[open] summary::after{content:"−"}
+details[open] summary{border-bottom:1px solid var(--line)}
+.body{padding:8px 16px 12px}
+.body ul{margin:6px 0;padding-inline-start:20px}
+.body li{margin:4px 0}
+b.k{color:var(--acc)}
+table{border-collapse:collapse;width:100%;margin:8px 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:right}
+th{background:var(--bg)}
+.tw{overflow-x:auto}
+.sum li{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 12px;list-style:none;margin-bottom:8px}
+.sum ul{padding:0;margin:0}
+.q{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
+.q h3{margin:0 0 10px;font-size:1.05rem}
+.opt{display:block;width:100%;text-align:right;padding:10px 12px;margin:6px 0;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
+.opt.ok{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 18%,var(--card))}
+.opt.bad{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 18%,var(--card))}
+.exp{margin-top:8px;color:var(--mut);font-size:.92rem}
+.nx{margin-top:10px;background:var(--pri);color:#fff;border:0;border-radius:10px;padding:8px 18px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .nx{color:#0b1d24}}
+:root[data-theme="dark"] .nx{color:#0b1d24}
+.bar{height:6px;background:var(--line);border-radius:3px;margin-bottom:12px}
+.bar i{display:block;height:100%;background:var(--acc);border-radius:3px;transition:width .2s}
+.empty{text-align:center;color:var(--mut);padding:24px}
+.lc{display:flex;align-items:center;gap:14px;width:100%;text-align:right;padding:14px;margin-bottom:10px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink)}
+.lc .no{flex:none;width:44px;height:44px;border-radius:50%;background:var(--acc);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.1rem}
+.lc b{display:block;font-size:1.05rem}
+.lc small{color:var(--mut)}
+.lc[disabled]{opacity:.55;cursor:default}
+.lc[disabled] .no{background:var(--mut)}
+.hd{font-weight:800;margin:4px 2px 12px}
+[hidden]{display:none!important}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<h1>Microcell: بيولوجيا الخلية</h1>
+<p id="sub"></p>
+<div class="row"><input type="search" id="s" placeholder="ابحث في المحاضرة…" aria-label="بحث"><button class="ic" id="bk" aria-label="كل المحاضرات">☰ المحاضرات</button><button class="ic" id="th" aria-label="تبديل الوضع">🌓</button></div>
+</div></header>
+<nav id="nv"><button data-v="lec" class="on">المحاضرة</button><button data-v="sum">مراجعة سريعة</button><button data-v="quiz">اختبار</button></nav>
+<main id="m"></main>
+
+<script>
+/* ===== المحاضرات =====
+ لإضافة محاضرة جديدة: انسخ أي عنصر وحطه في آخر القائمة L.
+ n = رقم المحاضرة، t = العنوان، T = الأقسام، S = المراجعة، Q = الأسئلة.
+ المحاضرة اللي ملهاش T بتظهر "قريبًا" ومقفولة. */
+var L=[
+{n:1,t:"الخلية",
+T:[
+{t:"نظرية الخلية: الاكتشاف والتاريخ",h:"<ul><li><b class='k'>روبرت هوك (1665):</b> أول من شاهد الخلايا في الفلين الميت وسماها «الخلية» لأنها شبهت غرف الرهبان الصغيرة.</li><li><b class='k'>ليفينهوك (1670):</b> أول من رأى كائنات حية متحركة (بكتيريا) بمجهر بسيط ذي عدسة واحدة، وسماها animalcules.</li><li><b class='k'>شلايدن (نبات) وشوان (حيوان) 1830:</b> الخلايا هي لبنات البناء الأساسية لكل الكائنات.</li><li><b class='k'>فيرشو / ريماك 1855:</b> كل خلية تنشأ من خلية موجودة مسبقًا.</li></ul><p><b>نظرية الخلية الحديثة:</b> 1) وحدة البناء 2) وحدة الوظيفة 3) استمرارية الحياة.</p>"},
+{t:"المجاهر",h:"<ul><li>قوة التكبير: كم مرة تكبر الصورة. <b class='k'>قوة التمييز:</b> إظهار التفاصيل المتقاربة منفصلة وواضحة.</li><li>مشاهدة عملية حية ← مجهر ضوئي. تفاصيل التركيب الخلوي ← مجهر إلكتروني.</li><li>الإلكترونات طولها الموجي أقصر بكثير من الفوتونات، فتُظهر تفاصيل أدق.</li></ul><div class='tw'><table><tr><th>وجه المقارنة</th><th>الضوئي</th><th>الإلكتروني</th></tr><tr><td>مصدر الصورة</td><td>الضوء</td><td>الإلكترونات</td></tr><tr><td>خلايا حية</td><td>نعم</td><td>لا</td></tr><tr><td>الدقة</td><td>متوسطة</td><td>عالية جدًا</td></tr><tr><td>التكلفة</td><td>منخفضة</td><td>مرتفعة</td></tr></table></div><ul><li><b class='k'>TEM (النافذ):</b> الإلكترونات تمر خلال عينة رقيقة جدًا، يُظهر التركيب الداخلي، صورة ثنائية الأبعاد.</li><li><b class='k'>SEM (الماسح):</b> يمسح سطح العينة، يُظهر الشكل السطحي بمظهر ثلاثي الأبعاد.</li><li>المجهر الفلوري: دقة عالية وتحديد أجزاء معينة. أول مجهر إلكتروني 1931 (روسكا وكنول).</li></ul>"},
+{t:"الخلية حقيقية النواة وأولية النواة",h:"<div class='tw'><table><tr><th>وجه المقارنة</th><th>أولية النواة</th><th>حقيقية النواة</th></tr><tr><td>النواة والعضيات الغشائية</td><td>لا توجد</td><td>توجد</td></tr><tr><td>DNA</td><td>حر في السيتوبلازم (نيوكليوئيد)</td><td>داخل النواة</td></tr><tr><td>الحجم</td><td>1–5 ميكرومتر</td><td>10–100 ميكرومتر</td></tr><tr><td>أمثلة</td><td>البكتيريا</td><td>نبات، حيوان، فطر</td></tr></table></div>"},
+{t:"الغشاء البلازمي والإكسوسوم",h:"<ul><li>بنية رقيقة تحيط بالخلية، سمكها 4–10 نانومتر.</li><li><b class='k'>أهميته:</b> حاجز يحمي البيئة الداخلية، ينظم مرور المواد (انتشار، نقل نشط، نقل ميسر)، ويرتبط بالهيكل الخلوي.</li><li><b class='k'>التركيب:</b> طبقة مزدوجة من الفوسفوليبيد (الرأس محب للماء للخارج، والذيلان كارهان للماء للداخل) + كوليسترول (يمنع التصلب الشديد أو السيولة المفرطة) + بروتينات متكاملة وطرفية + كربوهيدرات على السطح الخارجي.</li><li><b class='k'>الإكسوسومات:</b> حويصلات صغيرة خارج الخلية تحمل بروتينات ودهون وRNA، وتشارك في التواصل بين الخلايا. تتكون داخل أجسام متعددة الحويصلات. استخداماتها: إصلاح الأنسجة، تجديد البشرة، صحة الشعر.</li></ul>"},
+{t:"السيتوبلازم والنواة والريبوسوم",h:"<ul><li><b class='k'>السيتوبلازم:</b> مادة هلامية غنية بالماء (العصارة الخلوية/السيتوسول) فيها بروتينات وسكريات وأيونات. وظيفته: مكان نمو الخلية وتوسعها، ووسط ملائم للعضيات، ويدعمه الهيكل الخلوي.</li><li>في أوليات النواة: لا عضيات غشائية، والمادة الوراثية في النيوكليوئيد بدون غشاء.</li><li><b class='k'>النواة:</b> موطن المادة الوراثية، يحيطها غشاء نووي من طبقتين (داخلي وخارجي) به مسام نووية، وبداخلها بلازما نووية ونُويّة (يُصنع فيها rRNA).</li><li><b class='k'>الريبوسوم:</b> يتكون من rRNA + بروتينات داخل النُويّة، وتنتقل وحداته الفرعية عبر المسام إلى السيتوبلازم لتعمل.</li></ul>"},
+{t:"الشبكة الإندوبلازمية والليسوسوم",h:"<ul><li>شبكة أغشية متصلة بالغلاف النووي، وتجويفها منفصل عن السيتوسول.</li></ul><div class='tw'><table><tr><th></th><th>الخشنة</th><th>الملساء</th></tr><tr><td>الشكل</td><td>أكياس مسطحة (صهاريج)</td><td>أنابيب متفرعة</td></tr><tr><td>المظهر</td><td>عليها ريبوسومات</td><td>بلا ريبوسومات</td></tr><tr><td>الوظيفة</td><td>تصنيع ونقل البروتينات</td><td>تصنيع الدهون وإزالة السموم</td></tr></table></div><ul><li><b class='k'>الليسوسوم:</b> عضية صغيرة بغشاء، «مركز إعادة التدوير»، فيها إنزيمات هاضمة (بروتياز، ليباز، نيوكلياز) تحلل النفايات والمواد الغريبة والعضيات التالفة (البلعمة الذاتية Autophagy).</li></ul>"},
+{t:"البلاستيدات الخضراء والفجوة العصارية",h:"<ul><li><b class='k'>البلاستيدات الخضراء:</b> عضيات قرصية لها غشاءان. بداخلها أقراص <b>الثايلاكويدات</b> مرتبة في أكوام <b>الجرانا</b>، والسائل المحيط بها <b>الحشوة (Stroma)</b>، وفراغ القرص يسمى التجويف (Lumen).</li><li>غشاء الثايلاكويد يحمل مجمعات حصاد الضوء، ومنها <b>الكلوروفيل</b> (اللون الأخضر) وأصباغ مساعدة تحمي من الضوء الزائد.</li><li><b class='k'>الفجوة العصارية:</b> من أهم عضيات الخلية النباتية، تخزن الماء والإنزيمات، وتضغط المحتويات نحو الجدار فتعطي النبات صلابة وشكلًا ثابتًا. توجد أيضًا في الخلايا الحيوانية لكنها أصغر.</li></ul>"},
+{t:"الهيكل الخلوي",h:"<div class='tw'><table><tr><th>النوع</th><th>القطر</th><th>التركيب</th><th>الوظيفة</th></tr><tr><td>الخيوط الدقيقة</td><td>6–7 نانومتر</td><td>أكتين (+ ميوسين)</td><td>شكل الخلية، الحركة، الانقسام، الانقباض العضلي</td></tr><tr><td>الخيوط الوسيطة</td><td>8–10 نانومتر</td><td>بروتينات ليفية (كيراتين)</td><td>مرونة وقوة وتثبيت العضيات</td></tr><tr><td>الأنابيب الدقيقة</td><td>25 نانومتر</td><td>توبيولين (α وβ)</td><td>مسارات نقل، الجهاز المغزلي، الأهداب والأسواط</td></tr></table></div><ul><li><b class='k'>الجسم المركزي:</b> جسيمان مركزيان متعامدان، كل منهما 9 أزواج ثلاثية من الأنابيب الدقيقة، ينظم الأنابيب ويتضاعف قبل الانقسام. خلايا النبات تنقسم بدونه.</li><li><b class='k'>الأهداب والأسواط:</b> نمط 9+2. الأسواط لتحريك الخلية (الحيوان المنوي)، والأهداب بأعداد كبيرة لنقل المواد (الجهاز التنفسي).</li></ul>"},
+{t:"جدار الخلية والبلازموديزماتا",h:"<ul><li>تركيب صلب يحمي ويدعم ويعطي الشكل، في النبات والفطر وبعض الطلائعيات.</li><li>المكون الرئيسي: <b class='k'>السليلوز</b> (عديد سكاريد من الجلوكوز) يتجمع في ألياف دقيقة (microfibrils). ومعه الهيميسليلوز والبكتين.</li><li><b class='k'>الصفيحة الوسطى:</b> طبقة لاصقة تربط جدران الخلايا المتجاورة.</li><li><b class='k'>البلازموديزماتا:</b> قنوات من السيتوبلازم عبر الجدران تربط خليتين نباتيتين، بداخلها أنبوب من الشبكة الإندوبلازمية. الجزيئات الأصغر من <b>معدل الاستبعاد الحجمي</b> تمر بالانتشار السلبي.</li></ul>"},
+{t:"المصفوفة خارج الخلية والوصلات",h:"<ul><li><b class='k'>المصفوفة خارج الخلية (ECM):</b> شبكة بروتينات وسكريات في الخلايا الحيوانية: تدعم الخلية، تسهل التواصل، تثبت الخلايا، وتنظم النمو والتمايز.</li><li><b class='k'>الكولاجين:</b> 25–30% من بروتينات الجسم، يمنح الأنسجة القوة.</li><li><b class='k'>البروتيوغليكانات:</b> بروتينات غنية بالكربوهيدرات. <b class='k'>الإنتجرين:</b> مستقبل يربط الخلية بالمصفوفة. <b class='k'>الفيبرونيكتين:</b> بروتين لاصق يساعد في التئام الجروح.</li></ul><div class='tw'><table><tr><th>الوصلة</th><th>وظيفتها</th></tr><tr><td>الفجوية (Gap)</td><td>تسمح بمرور الأيونات والجزيئات الصغيرة (كعضلة القلب)</td></tr><tr><td>المعلقة (Desmosomes)</td><td>تثبت الخلايا بقوة في الأنسجة المتعرضة للشد</td></tr><tr><td>المحكمة (Tight)</td><td>تمنع تسرب السوائل بين الخلايا (مثل مبطنات المثانة)</td></tr><tr><td>البلازموديزماتا</td><td>قنوات تواصل بين الخلايا النباتية</td></tr></table></div>"},
+{t:"حركة الخلية",h:"<ul><li><b class='k'>الأقدام الكاذبة:</b> نتوءات للتحرك أو التقاط الطعام (الأميبا).</li><li><b class='k'>الأهداب:</b> زوائد شعرية (البراميسيوم) للحركة أو نقل السوائل.</li><li><b class='k'>الأسواط:</b> زوائد طويلة للحركة السريعة بضرب الماء، من جسم قاعدي وخطاف وخيط فلاجلين.</li></ul>"},
+{t:"الفرق بين Exosome وCentrosome وMesosome وPeroxisome",h:"<ul><li><b class='k'>Exosome:</b> حويصلة صغيرة خارج الخلية تحمل بروتينات ودهون وRNA للتواصل.</li><li><b class='k'>Centrosome:</b> مركز تنظيم الأنابيب الدقيقة، به مريكزان، ينظم المغزل.</li><li><b class='k'>Mesosome:</b> تراكيب ظهرت في صور البكتيريا، والرأي الحديث أنها آثار تحضير العينة وليست عضية ثابتة.</li><li><b class='k'>Peroxisome:</b> عضية بغشاء واحد للأكسدة وتكسير الأحماض الدهنية والتعامل مع فوق أكسيد الهيدروجين (إنزيم الكاتالاز).</li></ul>"}
+],
+S:["الخلية هي وحدة البناء والوظيفة، وكل خلية تنشأ من خلية سابقة.","هوك سمّى الخلية (1665)، وليفينهوك رأى البكتيريا (1670).","الضوئي للخلايا الحية، والإلكتروني للتفاصيل الدقيقة (TEM داخلي، SEM سطحي).","أولية النواة: بلا نواة ولا عضيات غشائية، حجمها 1–5 ميكرومتر.","الغشاء البلازمي: فوسفوليبيد مزدوج + كوليسترول + بروتينات + كربوهيدرات.","الإكسوسوم حويصلة للتواصل بين الخلايا، والليسوسوم مركز إعادة التدوير.","النُويّة تصنع rRNA، والريبوسوم يعمل في السيتوبلازم.","الشبكة الخشنة للبروتينات، والملساء للدهون وإزالة السموم.","الثايلاكويد ← جرانا، والسائل المحيط = الحشوة.","الهيكل الخلوي: أكتين 6–7 نم، وسيطة 8–10 نم، أنابيب 25 نم.","جدار الخلية من السليلوز، والبلازموديزماتا تربط الخلايا النباتية.","الوصلات: فجوية، معلقة، محكمة (في الحيوان) وبلازموديزماتا (في النبات)."],
+Q:[
+["من أول من شاهد الخلايا في الفلين الميت؟",["ليفينهوك","روبرت هوك","شوان","فيرشو"],1,"هوك (1665) وسماها «الخلية» لأنها تشبه غرف الرهبان."],
+["من أول من رأى كائنات حية متحركة (بكتيريا) بمجهر؟",["ليفينهوك","هوك","شلايدن","ريماك"],0,"ليفينهوك (1670) بمجهر بسيط ذي عدسة واحدة."],
+["أي مجهر يعطي صورة ثلاثية الأبعاد لسطح العينة؟",["TEM","الضوئي","SEM","الفلوري"],2,"SEM يمسح السطح بحزمة إلكترونات."],
+["لماذا تُستخدم الإلكترونات في المجاهر الإلكترونية؟",["لأنها أسرع من الضوء","لأن طولها الموجي أقصر فتُظهر تفاصيل أدق","لأنها بلا كتلة","لأنها أرخص"],1,"الطول الموجي القصير يعطي قوة تمييز أعلى."],
+["أي مما يلي من خصائص الخلية أولية النواة؟",["DNA داخل نواة","حجمها 10–100 ميكرومتر","DNA حر في السيتوبلازم","ميتوكوندريا"],2,"DNA يوجد في النيوكليوئيد بلا غشاء."],
+["وظيفة الكوليسترول في الغشاء البلازمي؟",["تصنيع البروتين","منع التصلب الشديد أو السيولة المفرطة","نقل الإشارات","الطاقة"],1,"يحافظ على صلابة الغشاء ومرونته."],
+["أين يتم تصنيع rRNA؟",["الريبوسوم","جهاز جولجي","النُويّة","الليسوسوم"],2,"النُويّة منطقة كثيفة داخل النواة."],
+["أي عضية تُعرف بمركز إعادة التدوير؟",["الليسوسوم","الميتوكوندريا","الفجوة","البيروكسيسوم"],0,"تحتوي إنزيمات هاضمة وتقوم بالبلعمة الذاتية."],
+["الشبكة الإندوبلازمية الملساء تقوم بـ:",["تصنيع البروتين","تصنيع الدهون وإزالة السموم","تكوين الريبوسوم","الانقسام"],1,"الخشنة هي المسؤولة عن البروتينات."],
+["تسمى أكوام أقراص الثايلاكويد:",["الحشوة","الجرانا","التجويف","الكلوروفيل"],1,"والسائل المحيط بها يسمى الحشوة."],
+["أي خيوط الهيكل الخلوي مكونة من الأكتين فقط؟",["الأنابيب الدقيقة","الخيوط الوسيطة","الخيوط الدقيقة","الجسم المركزي"],2,"وتعمل مع الميوسين في الانقباض العضلي."],
+["نمط الأهداب والأسواط الهيكلي هو:",["9+2","9+0","3+6","2+2"],0,"تسعة أزواج في دائرة وزوج في المركز."],
+["المكون الرئيسي لجدار الخلية النباتية:",["الكيتين","الكولاجين","السليلوز","الكيراتين"],2,"عديد سكاريد من وحدات الجلوكوز."],
+["الوصلة التي تمنع تسرب السوائل بين الخلايا:",["الفجوية","المحكمة","المعلقة","البلازموديزماتا"],1,"مثل الأنسجة المبطنة للمثانة البولية."],
+["البروتين الذي يعمل كمستقبل يربط الخلية بالمصفوفة خارج الخلية:",["الفيبرونيكتين","الكولاجين","الإنتجرين","الألبومين"],2,"ويشارك في الإشارات الخلوية وحركة الخلية."]
+]},
+{n:2,t:"المحاضرة الثانية"},
+{n:3,t:"المحاضرة الثالثة"}
+];
+
+var m=document.getElementById('m'),nv=document.getElementById('nv'),sb=document.getElementById('s'),bk=document.getElementById('bk'),sub=document.getElementById('sub');
+var cur=null,view='home',qi=0,sc=0,done=false,order=[];
+var INFO='كلية الزراعة · جامعة كفر الشيخ · د. عمرو عمران';
+function lec(f){var h='';cur.T.forEach(function(x,i){var txt=(x.t+' '+x.h.replace(/<[^>]+>/g,' ')).toLowerCase();if(f&&txt.indexOf(f)<0)return;h+='<details'+(f?' open':'')+'><summary>'+(i+1)+'. '+x.t+'</summary><div class="body">'+x.h+'</div></details>'});m.innerHTML=h||'<p class="empty">مفيش نتائج للبحث ده. جرّب كلمة تانية.</p>'}
+function sum(){m.innerHTML='<div class="sum"><ul>'+(cur.S||[]).map(function(s){return '<li>'+s+'</li>'}).join('')+'</ul></div>'}
+function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+function startQ(){order=shuffle((cur.Q||[]).map(function(_,i){return i}));qi=0;sc=0;quiz()}
+function quiz(){
+ if(!order.length){m.innerHTML='<p class="empty">مفيش أسئلة للمحاضرة دي لسه.</p>';return}
+ if(qi>=order.length){m.innerHTML='<div class="q"><h3>خلصت الاختبار</h3><p>نتيجتك: <b class="k">'+sc+' من '+order.length+'</b></p><button class="nx" id="re">ابدأ من جديد</button></div>';document.getElementById('re').onclick=startQ;return}
+ var q=cur.Q[order[qi]];done=false;
+ m.innerHTML='<div class="bar"><i style="width:'+(qi/order.length*100)+'%"></i></div><div class="q"><p class="exp">سؤال '+(qi+1)+' من '+order.length+'</p><h3>'+q[0]+'</h3><div id="o">'+q[1].map(function(o,i){return '<button class="opt" data-i="'+i+'">'+o+'</button>'}).join('')+'</div><div id="e"></div></div>';
+ document.getElementById('o').onclick=function(ev){var b=ev.target.closest('.opt');if(!b||done)return;done=true;var i=+b.dataset.i,bs=this.children;
+  if(i===q[2]){sc++;b.classList.add('ok')}else{b.classList.add('bad');bs[q[2]].classList.add('ok')}
+  document.getElementById('e').innerHTML='<p class="exp">'+q[3]+'</p><button class="nx" id="nx">'+(qi+1<order.length?'السؤال التالي':'شوف النتيجة')+'</button>';
+  document.getElementById('nx').onclick=function(){qi++;quiz()}}}
+function home(){
+ cur=null;view='home';nv.hidden=true;sb.hidden=true;bk.hidden=true;sub.textContent=INFO;document.title='Microcell – المحاضرات';
+ m.innerHTML='<p class="hd">اختار المحاضرة</p>'+L.map(function(l,i){var ok=!!l.T;return '<button class="lc" data-i="'+i+'"'+(ok?'':' disabled')+'><span class="no">'+l.n+'</span><span><b>'+l.t+'</b><small>'+(ok?l.T.length+' قسم · '+(l.Q||[]).length+' سؤال':'قريبًا')+'</small></span></button>'}).join('');
+ window.scrollTo(0,0)}
+function openL(i){cur=L[i];order=[];nv.hidden=false;sb.hidden=false;bk.hidden=false;sb.value='';
+ sub.textContent='المحاضرة '+cur.n+': '+cur.t+' · '+INFO;document.title='Microcell – المحاضرة '+cur.n+': '+cur.t;go('lec')}
+function go(v){view=v;document.querySelectorAll('nav button').forEach(function(b){b.classList.toggle('on',b.dataset.v===v)});
+ if(v==='lec')lec(sb.value.trim().toLowerCase());else if(v==='sum')sum();else{if(!order.length)startQ();else quiz()}window.scrollTo(0,0)}
+m.onclick=function(e){var b=e.target.closest('.lc');if(b&&!b.disabled&&view==='home')openL(+b.dataset.i)};
+nv.onclick=function(e){var b=e.target.closest('button');if(b)go(b.dataset.v)};
+bk.onclick=home;
+sb.oninput=function(){if(view!=='lec')go('lec');else lec(this.value.trim().toLowerCase())};
+document.getElementById('th').onclick=function(){var r=document.documentElement,d=r.getAttribute('data-theme');var c=d||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');var x=c==='dark'?'light':'dark';r.setAttribute('data-theme',x);try{localStorage.setItem('mc-theme',x)}catch(e){}};
+try{var t=localStorage.getItem('mc-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}
+home();
+</script>
+</body>
+</html>
